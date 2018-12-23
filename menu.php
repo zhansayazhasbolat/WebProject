@@ -56,8 +56,6 @@ switch($_GET["action"]) {
     <link href="owl-carousel/owl.theme.css" rel="stylesheet">
     <link href="style.css" type="text/css" rel="stylesheet" />
 	
-	<script src="js/jquery-2.1.1.js"></script>
-	<script src="js/script.js"></script>
 </head>
 <body>
 <div class="wrap-body">
@@ -68,17 +66,14 @@ switch($_GET["action"]) {
 			<div class="col-2-3">
 				<ul class="list-inline top-link link">
 					<li><i class="fa fa-map-marker"></i>Большой Спасоглинищевский Переулок, 9/1 стр 10, Москва 101000, Россия</li>
-					<li><a href="contact.html"><i class="fa fa-phone"></i> +7 925 440-85-68</a></li>
+					<li><i class="fa fa-phone"></i> +7 925 440-85-68</li>
 					<li><i class="fa fa-clock-o"></i>Работаем ежедневно с 8:00-00:00</li>
 				</ul>
 			</div>
-			<div class="col-1-3">
-				<ul class="list-inline top-social">
-					<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-					<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-					<li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-					<li><a href="#"><i class="fa fa-google-plus-square"></i></a></li>
-					<li><a href="#"><i class="fa fa-youtube"></i></a></li>
+			<div class="list-inline top-link link">
+				<ul class="list-inline top-link link">
+					<li style="padding-left: 200px"><a href="login.html">Sign in</a></li>
+					<li>Sign up</li>
 				</ul>
 			</div>
 		</div>
@@ -93,8 +88,8 @@ switch($_GET["action"]) {
 					<li><a href="index.html">Главная страница</a></li>
 					<li><a href="menu.php">Меню</i></a><ul style="z-index:999;"></ul></li>
 					<li><a href="archive.html">Блог</a></li>
-					<li style="float:right !important">
-						<form method="get" action="/search" id="search" class="f-right">
+					<li>
+						<form method="get" action="/search" id="search" style="padding-left: 570px">
 							<input name="q" type="text" size="40" placeholder="Search..." />
 						</form>
 					</li>
@@ -106,7 +101,7 @@ switch($_GET["action"]) {
 <div id="shopping-cart">
 <div class="txt-heading">Shopping Cart</div>
 
-<a id="btnEmpty" href="index.php?action=empty">Empty Cart</a>
+<a id="btnEmpty" href="menu.php?action=empty">Empty Cart</a>
 <?php
 if(isset($_SESSION["cart_item"])){
     $total_quantity = 0;
@@ -132,7 +127,7 @@ if(isset($_SESSION["cart_item"])){
 				<td style="text-align:right;"><?php echo $item["quantity"]; ?></td>
 				<td  style="text-align:right;"><?php echo "$ ".$item["price"]; ?></td>
 				<td  style="text-align:right;"><?php echo "$ ". number_format($item_price,2); ?></td>
-				<td style="text-align:center;"><a href="index.php?action=remove&code=<?php echo $item["code"]; ?>" class="btnRemoveAction"><img src="icon-delete.png" alt="Remove Item" /></a></td>
+				<td style="text-align:center;"><a href="menu.php?action=remove&code=<?php echo $item["code"]; ?>" class="btnRemoveAction"><img src="icon-delete.png" alt="Remove Item" /></a></td>
 				</tr>
 				<?php
 				$total_quantity += $item["quantity"];
